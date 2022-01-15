@@ -1,1 +1,1 @@
-# mlphys
+# Machine Learning for Physical Sciences
