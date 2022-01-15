@@ -8,33 +8,6 @@ import tensorflow as tf
 import tensorflow_probability as tfp
 
 
-class BellPair:
-
-    def __init__(self):
-        self.rho_phi_p = 1 / 2. * tf.reshape([[1., 0., 0., 1.],
-                                              [0., 0., 0., 0.],
-                                              [0., 0, 0, 0],
-                                              [1., 0., 0., 1.]], (4, 4))
-
-        self.rho_phi_m = 1 / 2. * tf.reshape([[1., 0., 0., -1.],
-                                              [0., 0., 0., 0.],
-                                              [0., 0., 0., 0.],
-                                              [-1., 0., 0., 1.]], (4, 4))
-
-        self.rho_psi_p = 1 / 2. * tf.reshape([[0., 0., 0., 0.],
-                                              [0., 1., 1., 0.],
-                                              [0., 1., 1., 0.],
-                                              [0., 0., 0., 0.]], (4, 4))
-
-        self.rho_psi_m = 1 / 2. * tf.reshape([[0., 0., 0., 0.],
-                                              [0., 1., -1., 0.],
-                                              [0., -1., 1., 0.],
-                                              [0., 0., 0., 0.]], (4, 4))
-
-    def __call__(self, *args, **kwargs):
-        bell_pair = tf.stack((self.rho_phi_p, self.rho_phi_m, self.rho_psi_p, self.rho_phi_m), axis=0)
-        return bell_pair
-
 
 class Werner_Two_Q:
 
