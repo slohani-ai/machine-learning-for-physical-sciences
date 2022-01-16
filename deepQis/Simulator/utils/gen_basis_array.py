@@ -31,15 +31,15 @@ class MultiQubitSystem:
                 prod = np.kron(prod, self.dict_proj[povm[j]])
         return prod
 
-    def IBM_Projectors(self):
+    def NISQ_Projectors(self):
         ibmq_proj = gen_basis_order.Basis_Order(qs=self._qs)
         # print(ibmq_proj)
         Proj = list(map(self.Kron_Povm, ibmq_proj))
         Proj = np.array(Proj).reshape(-1, 2 ** self._qs, 2 ** self._qs)
         return Proj
 
-for qubit_size in range(1, 5):
-    mqs = MultiQubitSystem(qubit_size=qubit_size)
-    proj = mqs.IBM_Projectors()
-    with open(f'ibm_projectors_array_qs_{qubit_size}.pickle', 'wb') as f:
-        pkl.dump(proj, f, -1)
+# for qubit_size in range(1, 5):
+#     mqs = MultiQubitSystem(qubit_size=qubit_size)
+#     proj = mqs.IBM_Projectors()
+#     with open(f'ibm_projectors_array_qs_{qubit_size}.pickle', 'wb') as f:
+#         pkl.dump(proj, f, -1)

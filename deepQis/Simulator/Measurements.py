@@ -17,7 +17,7 @@ class Ideal:
         if not os.path.exists(f'./utils/projectors_array_qs_{self.qs}.pickle'):
             print('| To accelerate the simulation, Projectors file is created in utils folder.')
             mqs = gen_proj.MultiQubitSystem(qubit_size=self._qs)
-            proj = mqs.IBM_Projectors()
+            proj = mqs.NISQ_Projectors()
             with open(f'projectors_array_qs_{self._qs}.pickle', 'wb') as f:
                 pkl.dump(proj, f, -1)
         else:
@@ -72,7 +72,7 @@ class Random_Shots:
         if not os.path.exists(f'./utils/projectors_array_qs_{self.qs}.pickle'):
             print('| To accelerate the simulation, Projectors file is created in utils folder.')
             mqs = gen_proj.MultiQubitSystem(qubit_size=self._qs)
-            proj = mqs.IBM_Projectors()
+            proj = mqs.NISQ_Projectors()
             with open(f'projectors_array_qs_{self._qs}.pickle', 'wb') as f:
                 pkl.dump(proj, f, -1)
         else:
@@ -158,7 +158,7 @@ class NISQ_Shots:
         if not os.path.exists(f'./utils/projectors_array_qs_{self.qs}.pickle'):
             print('| To accelerate the simulation, Projectors file is created in utils folder.')
             mqs = gen_proj.MultiQubitSystem(qubit_size=self._qs)
-            proj = mqs.IBM_Projectors()
+            proj = mqs.NISQ_Projectors()
             with open(f'projectors_array_qs_{self._qs}.pickle', 'wb') as f:
                 pkl.dump(proj, f, -1)
         else:
