@@ -1,8 +1,4 @@
-import _pickle as pkl
-import os
-
 import numpy as np
-import pandas as pd
 import qiskit.quantum_info as qi
 import tensorflow as tf
 import tensorflow_probability as tfp
@@ -24,6 +20,7 @@ class Haar_State:
         q_dm = np.array(q_dm).reshape(n_size, 2 ** self._qs,
                                       2 ** self._qs)  # [self.n_size, 2 ** self._qs, 2 ** self._qs]
         return q_dm
+
 
 class Hilbert_Schmidt:
 
@@ -71,6 +68,7 @@ class eye_NN:
         q_dm = np.array(q_dm).reshape(n_size, 2 ** self._qs,
                                       2 ** self._qs)  # [self.n_size, 2 ** self._qs, 2 ** self._qs]
         return 1 / 4 * q_dm
+
 
 class HS_Haar:
 
@@ -142,6 +140,7 @@ class MaiAlquierDist_Symmetric:
         # --> [n_size, self._qs, self._qs]
         return ma_states
 
+
 class MaiAlquierDist_Asymmetric:
 
     def __init__(self,
@@ -210,7 +209,7 @@ class MaiAlquierDist_Gamma:
         Xi = self._cast_complex(Xi)
         X = Xr + 1j * Xi
         W = X / tf.expand_dims(tf.norm(X, axis=1), axis=1)
-        print('shape of W', W.shape)
+        # print('shape of W', W.shape)
         if isinstance(self.alpha, float):
             gamma_factor = self._cast_complex(tf.random.gamma([self.n_size, 2 ** self._qs], alpha=self.alpha, beta=1.))
         else:

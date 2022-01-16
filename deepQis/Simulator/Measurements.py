@@ -1,22 +1,132 @@
 import _pickle as pkl
+import itertools
 import os
+import sys
 
 import numpy as np
 import pandas as pd
-import qiskit.quantum_info as qi
 import tensorflow as tf
-import tensorflow_probability as tfp
-from utils import gen_basis_array as gen_proj
 
+
+class Gen_Basis_Order:
+
+    def __init__(self, qs):
+        self._qs = qs
+
+    def Povm_List_Qubit_1(self, standard_list=['d', 'a', 'r', 'l', 'h', 'v']):
+
+        return standard_list
+
+    def Povm_List_Qubit_2(self):
+        standard_list = self.Povm_List_Qubit_1()
+        iter_for = [['d', 'a'], ['r', 'l'], ['h', 'v']]
+        povm_list = []
+        for j in iter_for:
+            povm_list.append(list(itertools.product(standard_list, j)))
+        p_list = []
+        for i in range(len(povm_list)):
+            p_list.append([list(j) for j in povm_list[i]])
+
+        return p_list
+
+    def Povm_List_Qubit_3(self):
+        dd, rr, hh = self.Povm_List_Qubit_2()
+        iter_for = [['d', 'a'], ['r', 'l'], ['h', 'v']]
+        povm_list = []
+        for j in iter_for:
+            for k in [dd, rr, hh]:
+                povm_list.append(list(itertools.product(k, j)))
+        p_list = []
+        for i in range(len(povm_list)):
+            p_list.append([list(j) for j in povm_list[i]])
+
+        return p_list
+
+    def Povm_List_Qubit_4(self):
+        dd_2, dd_3, dd_4, rr_2, rr_3, rr_4, hh_2, hh_3, hh_4 = self.Povm_List_Qubit_3()
+        iter_for = [['d', 'a'], ['r', 'l'], ['h', 'v']]
+        povm_list = []
+        for j in iter_for:
+            for k in [dd_2, dd_3, dd_4, rr_2, rr_3, rr_4, hh_2, hh_3, hh_4]:
+                povm_list.append(list(itertools.product(k, j)))
+        p_list = []
+        for i in range(len(povm_list)):
+            p_list.append([list(j) for j in povm_list[i]])
+        return p_list
+
+    def Convert_to_Projections(self, raw_povm_list, qs=3):
+        pp_list = []
+        for i in raw_povm_list:
+            for k in i:
+                un_list = list(itertools.chain.from_iterable(k))
+                pp_list.append(un_list)
+        if qs > 3:
+            ppp_list = []
+            for i in pp_list:
+                un_list = list(itertools.chain.from_iterable(i))
+                ppp_list.append(un_list)
+            pp_list = ppp_list
+        return pp_list
+
+    def Basis_Order(self):
+        if self._qs == 1:
+            Plist = self.Povm_List_Qubit_1()
+        elif self._qs == 2:
+            Plist = self.Povm_List_Qubit_2()
+        elif self._qs == 3:
+            Plist = self.Povm_List_Qubit_3()
+        elif self._qs == 4:
+            Plist = self.Povm_List_Qubit_4()
+        else:
+            sys.exit('Qubit size must be less or equal to 4.')
+        converted = self.Convert_to_Projections(Plist, qs=4)
+        titles = [''.join(i) for i in converted]
+        return titles
+
+
+class MultiQubitSystem:
+
+    def __init__(self, qubit_size=4):
+        self._qs = qubit_size
+        self.H = np.array([1., 0.]).astype(np.float32).reshape(2, 1)
+        self.V = np.array([0., 1.]).astype(np.float32).reshape(2, 1)
+        self.D = 1 / np.sqrt(2.) * (self.H + self.V)
+        self.A = 1 / np.sqrt(2.) * (self.H - self.V)
+        self.R = 1 / np.sqrt(2.) * (self.H + 1j * self.V)
+        self.L = 1 / np.sqrt(2.) * (self.H - 1j * self.V)
+        self.h = np.matmul(self.H, np.conjugate(self.H.T))
+        self.v = np.matmul(self.V, np.conjugate(self.V.T))
+        self.d = np.matmul(self.D, np.conjugate(self.D.T))
+        self.a = np.matmul(self.A, np.conjugate(self.A.T))
+        self.r = np.matmul(self.R, np.conjugate(self.R.T))
+        self.l = np.matmul(self.L, np.conjugate(self.L.T))
+        self.dict_proj = {'h': self.h, 'v': self.v, 'd': self.d, 'a': self.a, 'r': self.r, 'l': self.l}
+
+    def Kron_Povm(self, povm):
+        prod = 0.
+        if len(povm) == 1:
+            prod = self.dict_proj[povm[0]]
+        else:
+            prod = np.kron(self.dict_proj[povm[0]], self.dict_proj[povm[1]])
+            for j in range(2, self._qs):
+                prod = np.kron(prod, self.dict_proj[povm[j]])
+        return prod
+
+    def NISQ_Projectors(self):
+        ibmq_proj = Gen_Basis_Order(qs=self._qs).Basis_Order()
+        # print(ibmq_proj)
+        Proj = list(map(self.Kron_Povm, ibmq_proj))
+        Proj = np.array(Proj).reshape(-1, 2 ** self._qs, 2 ** self._qs)
+        return Proj
 
 
 class Ideal:
 
     def __init__(self, qs=2):
         self._qs = qs
-        if not os.path.exists(f'./utils/projectors_array_qs_{self.qs}.pickle'):
+        if not os.path.exists(f'../utils/projectors_array_qs_{self.qs}.pickle'):
             print('| To accelerate the simulation, Projectors file is created in utils folder.')
-            mqs = gen_proj.MultiQubitSystem(qubit_size=self._qs)
+            mqs = MultiQubitSystem(qubit_size=self._qs)
             proj = mqs.NISQ_Projectors()
             with open(f'projectors_array_qs_{self._qs}.pickle', 'wb') as f:
                 pkl.dump(proj, f, -1)
@@ -63,20 +173,21 @@ class Ideal:
 
         return [tomo_array, tau_array]
 
+
 class Random_Shots:
 
     def __init__(self, qs=2, n_meas=1024):
         self._qs = qs
         self.n_shots = n_meas
 
-        if not os.path.exists(f'./utils/projectors_array_qs_{self.qs}.pickle'):
+        if not os.path.exists(f'../utils/projectors_array_qs_{self.qs}.pickle'):
             print('| To accelerate the simulation, Projectors file is created in utils folder.')
-            mqs = gen_proj.MultiQubitSystem(qubit_size=self._qs)
+            mqs = MultiQubitSystem(qubit_size=self._qs)
             proj = mqs.NISQ_Projectors()
             with open(f'projectors_array_qs_{self._qs}.pickle', 'wb') as f:
                 pkl.dump(proj, f, -1)
         else:
-            self.projectors = pd.read_pickle(f'./utils/projectors_array_qs_{self._qs}.pickle')
+            self.projectors = pd.read_pickle(f'../utils/projectors_array_qs_{self._qs}.pickle')
 
         self.n_proj = self.projectors.reshape(3 ** self._qs, self._qs ** 2, self._qs ** 2, self._qs ** 2)
         self.proj_used_rank_list = []
@@ -157,7 +268,7 @@ class NISQ_Shots:
 
         if not os.path.exists(f'./utils/projectors_array_qs_{self.qs}.pickle'):
             print('| To accelerate the simulation, Projectors file is created in utils folder.')
-            mqs = gen_proj.MultiQubitSystem(qubit_size=self._qs)
+            mqs = MultiQubitSystem(qubit_size=self._qs)
             proj = mqs.NISQ_Projectors()
             with open(f'projectors_array_qs_{self._qs}.pickle', 'wb') as f:
                 pkl.dump(proj, f, -1)
