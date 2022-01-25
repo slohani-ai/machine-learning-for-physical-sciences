@@ -118,11 +118,11 @@ setup(
     include_package_data=True,
     license='Apache 2.0',
     classifiers=[
-        'Development Status :: 1 - Alpha',
-        'Intended Audience :: Researcher',
+        'Development Status :: 3 - Alpha',
+        'Intended Audience :: Science/Research',
         # Trove classifiers
         # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
-        'License :: OSI Approved :: Apache 2.0',
+        'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.8',
@@ -130,7 +130,7 @@ setup(
         'Programming Language :: Python :: Implementation :: PyPy'
     ],
     # $ setup.py publish support.
-    cmdclass={
-        'upload': UploadCommand,
-    },
+    # cmdclass={
+    #     'upload': UploadCommand,
+    # },
 )
