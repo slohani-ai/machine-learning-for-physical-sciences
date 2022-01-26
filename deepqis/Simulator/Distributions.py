@@ -127,7 +127,7 @@ class MaiAlquierDist_Symmetric:
         sampled = tf.expand_dims(sampled, axis=-1)  # [n_size, self._qs, 1, 1]
         return sampled
 
-    def sample_dm(self, n_size):
+    def sample_dm(self, n_size, numpy_array=False):
         q_dm = Haar_State(qs=self._qs).sample_dm(n_size=n_size * 2 ** self._qs)  # [self.n_size * 2**self._qs,
         # 2 ** self._qs, 2 ** self._qs]
         haar_dm = tf.reshape(q_dm, [n_size, 2 ** self._qs, 2 ** self._qs, 2 ** self._qs])  # [n_size, self._qs,
@@ -138,6 +138,8 @@ class MaiAlquierDist_Symmetric:
         ma_states = tf.reduce_sum(ma_states_array,
                                   axis=1)  # [n_size, self._qs --> traced out and dropped, self._qs, self._qs]
         # --> [n_size, self._qs, self._qs]
+        if numpy_array:
+            ma_states = ma_states.numpy()
         return ma_states
 
 
@@ -173,7 +175,7 @@ class MaiAlquierDist_Asymmetric:
         sampled = tf.expand_dims(sampled, axis=-1)  # [n_size, self._qs, 1, 1]
         return sampled
 
-    def sample_dm(self, n_size):
+    def sample_dm(self, n_size, numpy_array=False):
         q_dm = Haar_State(qs=self._qs).sample_dm(n_size=n_size * self.K)  # [self.n_size * 2**self._qs,
         # 2 ** self._qs, 2 ** self._qs]
         haar_dm = tf.reshape(q_dm, [n_size, self.K, 2 ** self._qs, 2 ** self._qs])  # [n_size, self._qs,
@@ -184,6 +186,8 @@ class MaiAlquierDist_Asymmetric:
         ma_states = tf.reduce_sum(ma_states_array,
                                   axis=1)  # [n_size, self._qs --> traced out and dropped, self._qs, self._qs]
         # --> [n_size, self._qs, self._qs]
+        if numpy_array:
+            ma_states = ma_states.numpy()
         return ma_states
 
 
@@ -200,7 +204,7 @@ class MaiAlquierDist_Gamma:
         return tf.cast(x, tf.complex128)
 
     @tf.function
-    def sample_dm(self, n_size=tf.TensorSpec(shape=1, dtype=tf.int64)):
+    def sample_dm(self, n_size=tf.TensorSpec(shape=1, dtype=tf.int64), numpy_array=False):
         self.n_size = n_size
         x = tf.random.normal([self.n_size, 2 * 2 ** self._qs * 2 ** self._qs], 0., 1.)
         Xr = tf.reshape(x[:, :2 ** self._qs * 2 ** self._qs], [self.n_size, 2 ** self._qs, 2 ** self._qs])
@@ -218,5 +222,4 @@ class MaiAlquierDist_Gamma:
         gamma_factor_norm = gamma_factor / tf.expand_dims(tf.reduce_sum(gamma_factor, axis=1), axis=1)
         gama_diag_batch = tf.vectorized_map(lambda x: tf.linalg.diag(x), gamma_factor_norm)  # rank 3 tensors
         rho = tf.linalg.matmul(W, tf.linalg.matmul(gama_diag_batch, W, adjoint_b=True))
-
         return rho
