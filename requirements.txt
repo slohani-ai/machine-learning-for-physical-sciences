@@ -1,4 +1,5 @@
-tensorflow
-tensorflow-probability
-pandas
-qiskit
+tensorflow>=2.6
+tensorflow-probability>=0.13.0
+pandas>=1.2.5
+qiskit>=0.19.1
+numpy
