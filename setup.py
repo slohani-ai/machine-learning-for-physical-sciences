@@ -18,7 +18,7 @@ URL = 'https://github.com/slohani-ai/mlphys'
 EMAIL = 'slohani@mlphys.com'
 AUTHOR = 'Sanjaya Lohani'
 REQUIRES_PYTHON = '>=3.7.0'
-VERSION = '0.0.1'
+VERSION = '0.0.20'
 
 # What packages are required for this module to be executed?
 req_libs = open('requirements.txt').read().split('\n')
@@ -105,8 +105,9 @@ setup(
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     url=URL,
-    packages=(find_packages(where='deepqis/Simulator')+
-              find_packages(where='deepqis/utils')), #exclude=('tests',)
+    packages = ['deepqis'],
+    # packages=(find_packages(where='./deepqis')+
+              # find_packages(where='./deepqis/utils')), #exclude=('tests',)
     # If your package is a single module, use this instead of 'packages':
     # py_modules=['mypackage'],
 
@@ -125,6 +126,8 @@ setup(
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         # 'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy'

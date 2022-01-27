@@ -1,5 +1,5 @@
 import numpy as np
-import gen_basis_order
+import deepqis.utils.gen_basis_order
 import _pickle as pkl
 
 
