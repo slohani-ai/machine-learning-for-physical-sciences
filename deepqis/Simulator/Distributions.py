@@ -127,7 +127,7 @@ class MaiAlquierDist_Symmetric:
         sampled = tf.expand_dims(sampled, axis=-1)  # [n_size, self._qs, 1, 1]
         return sampled
 
-    def sample_dm(self, n_size, numpy_array=False):
+    def sample_dm(self, n_size, numpy_array=True):
         q_dm = Haar_State(qs=self._qs).sample_dm(n_size=n_size * 2 ** self._qs)  # [self.n_size * 2**self._qs,
         # 2 ** self._qs, 2 ** self._qs]
         haar_dm = tf.reshape(q_dm, [n_size, 2 ** self._qs, 2 ** self._qs, 2 ** self._qs])  # [n_size, self._qs,
@@ -175,7 +175,7 @@ class MaiAlquierDist_Asymmetric:
         sampled = tf.expand_dims(sampled, axis=-1)  # [n_size, self._qs, 1, 1]
         return sampled
 
-    def sample_dm(self, n_size, numpy_array=False):
+    def sample_dm(self, n_size, numpy_array=True):
         q_dm = Haar_State(qs=self._qs).sample_dm(n_size=n_size * self.K)  # [self.n_size * 2**self._qs,
         # 2 ** self._qs, 2 ** self._qs]
         haar_dm = tf.reshape(q_dm, [n_size, self.K, 2 ** self._qs, 2 ** self._qs])  # [n_size, self._qs,
