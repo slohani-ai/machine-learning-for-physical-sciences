@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: mlphys
-Version: 0.0.21
+Version: 0.0.34
 Summary: Machine Learning for Physical Sciences
-Home-page: https://github.com/slohani-ai/mlphys
+Home-page: https://sanjayalohani.com
 Author: Sanjaya Lohani
 Author-email: slohani@mlphys.com
 License: Apache 2.0
