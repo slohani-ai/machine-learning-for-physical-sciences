@@ -25,4 +25,4 @@ def fit(input_data):
     x_in = tf.reshape(x_test, [-1, 6, 6, 1])
     logits, dm_pred = model(x_in)
 
-    return dm_pred
+    return dm_pred, model

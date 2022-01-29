@@ -19,7 +19,7 @@ URL = 'https://sanjayalohani.com'
 EMAIL = 'slohani@mlphys.com'
 AUTHOR = 'Sanjaya Lohani'
 REQUIRES_PYTHON = '>=3.7.0'
-VERSION = '0.0.34'
+VERSION = '0.0.35'
 
 # What packages are required for this module to be executed?
 req_libs = open('requirements.txt').read().split('\n')
