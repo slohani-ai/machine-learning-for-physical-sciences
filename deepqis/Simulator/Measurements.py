@@ -255,7 +255,7 @@ class Random_Measurements:
     def tomography_data(self, density_matrix, norm=True, save_file=False, filename='pickle.pickle'):
         self.count = 1
         measurements = list(map(self.measurement_array, density_matrix))
-        measurements = np.array(measurements).reshape(-1, 9 * self.n_shots, 6 ** self._qs)
+        measurements = np.array(measurements).reshape(-1, self.n_shots, 6 ** self._qs)
         if norm:
             tomo_array = np.sum(measurements, axis=1) / self.n_shots
         else:

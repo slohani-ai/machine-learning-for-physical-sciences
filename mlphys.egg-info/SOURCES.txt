@@ -7,8 +7,11 @@ deepqis/__init__.py
 deepqis/Simulator/Distributions.py
 deepqis/Simulator/Measurements.py
 deepqis/Simulator/__init__.py
+deepqis/network/__init__.py
+deepqis/network/inference.py
 deepqis/utils/Alpha_Measure.py
 deepqis/utils/Concurrence_Measure.py
+deepqis/utils/Extract_Net.py
 deepqis/utils/Fidelity_Measure.py
 deepqis/utils/Max_Eigen_Measure.py
 deepqis/utils/Purity_Measure.py
