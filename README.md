@@ -3,6 +3,8 @@
 
 @Sanjaya Lohani
 
+*Please report bugs at slohani@mlphys.com
+
 Papers:
 
 1.   Lohani, S., Lukens, J.M., Jones, D.E., Searles, T.A., Glasser, R.T. and Kirby, B.T., 2021. Improving application performance with biased distributions of quantum states. *Physical Review Research*, 3(4), p.043145. 
@@ -11,4 +13,4 @@ Papers:
 
 Collaborator: Joseph M. Lukens, Daniel E. Jones, Ryan T. Glasser, Thomas A. Searles, and Brian T. Kirby
 
-*Please report bugs at slohani@mlphys.com
+
