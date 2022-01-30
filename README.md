@@ -13,11 +13,9 @@ author: Sanjaya Lohani
 * <a href="https://github.com/slohani-ai/machine-learning-for-physical-sciences/tree/main/mlphys/lgoam">LG-OAM Tensors</a>
 
 
-*Follow me:*
+#### Follow me:
 
-[website](https://sanjayalohani.com)
-
-[twitter_handle](https://twitter.com/slohani_ai) 
+[WWW](https://sanjayalohani.com) . [twitter_handle](https://twitter.com/slohani_ai) 
 
 <!--
 Papers:
