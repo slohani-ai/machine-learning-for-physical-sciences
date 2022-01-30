@@ -74,7 +74,7 @@ Thank you!
 
 ### Built With
 
-* [Tensorflow 2.4](https://www.tensorflow.org/)
+* [Tensorflow >2.4](https://www.tensorflow.org/)
 * [Tensorflow Probability](https://www.tensorflow.org/probability)
 
 
@@ -84,34 +84,22 @@ Thank you!
 
 To get a local copy up and running, follow these simple steps.
 
-### Prerequisites
+### Prerequisites and Installation
 
-Please install libraries from the requirements.txt file
+
   ```sh
-  pip install requirements.txt
+  pip install mlphys
   ```
 
-### Installation
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/slohani-ai/LG-OAM-simulations-with-Tensors.git
-   ```
-<!-- 
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
--->
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
 ```sh
-from utils.Imaging import Save
-from utils.Noise import Noise_Dist
-from source.OAM_Intensity_Phase import LG_Lights_Tensorflow
+from mlphys.lgoam.utils.Imaging import Save
+from mlphys.lgoam.utils.Noise import Noise_Dist
+from mlphys.lgoam.source.OAM_Intensity_Phase import LG_Lights_Tensorflow
 
 lg = LG_Ligths_Tensorflow(xpixel, ypixel, dT, verbose)
 ```
