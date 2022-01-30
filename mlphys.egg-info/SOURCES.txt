@@ -12,8 +12,8 @@ mlphys/deepqis/__init__.py
 mlphys/deepqis/Simulator/Distributions.py
 mlphys/deepqis/Simulator/Measurements.py
 mlphys/deepqis/Simulator/__init__.py
+mlphys/deepqis/network/Inference.py
 mlphys/deepqis/network/__init__.py
-mlphys/deepqis/network/inference.py
 mlphys/deepqis/network/models/ARL_ONRL_meas_n_1000_qubits_2_batch_4_alpha_0.1_BEST.h5
 mlphys/deepqis/network/models/ARL_ONRL_meas_n_1000_qubits_2_batch_4_alpha_0.4_BEST.h5
 mlphys/deepqis/utils/Alpha_Measure.py
