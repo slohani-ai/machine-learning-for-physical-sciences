@@ -22,14 +22,13 @@ Collaborator: Joseph M. Lukens, Daniel E. Jones, Ryan T. Glasser, Thomas A. Sear
 ## Usage
 
 ```sh
-import deepqis.Simulator.Distributions as dist
-import deepqis.Simulator.Measurements as meas
-import matplotlib.pyplot as plt
-import deepqis.utils.Alpha_Measure as find_alpha
-import deepqis.utils.Concurrence_Measure as find_con
-import deepqis.utils.Purity_Measure as find_pm
-import deepqis.network.inference as inference
-import deepqis.utils.Fidelity_Measure as fm
+import mlphys.deepqis.Simulator.Distributions as dist
+import mlphys.deepqis.Simulator.Measurements as meas
+import mlphys.deepqis.utils.Alpha_Measure as find_alpha
+import mlphys.deepqis.utils.Concurrence_Measure as find_con
+import mlphys.deepqis.utils.Purity_Measure as find_pm
+import mlphys.deepqis.network.inference as inference
+import mlphys.deepqis.utils.Fidelity_Measure as fm
 ...
 ```
 
