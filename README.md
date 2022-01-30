@@ -3,11 +3,11 @@
 #### Installation
 ##### pip install mlphys
 
-Author: Sanjaya Lohani
+author: Sanjaya Lohani
 
 *Please report bugs at slohani@mlphys.com
 
-#### sub-modules
+#### Sub-modules
 * <a href="https://github.com/slohani-ai/machine-learning-for-physical-sciences/tree/main/mlphys">deepQis</a>
 
 * <a href="https://github.com/slohani-ai/machine-learning-for-physical-sciences/tree/main/mlphys/lgoam">LG-OAM Tensors</a>
