@@ -33,7 +33,7 @@ import deepqis.utils.Fidelity_Measure as fm
 ...
 ```
 
-_For examples, please refer to_ 
+_For examples (google colab), please refer to_ 
 * [Generating Biased Distributions](https://github.com/slohani-ai/mlphys/blob/main/tutorials-google-colab-notebook/Biased_distributions_random_Q_states.ipynb). 
 * [Inference Examples](https://github.com/slohani-ai/mlphys/blob/main/tutorials-google-colab-notebook/Inference_examples.ipynb).
 
