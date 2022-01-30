@@ -9,16 +9,17 @@ import os
 import sys
 from shutil import rmtree
 
-from setuptools import find_packages, setup, Command
+import setuptools
+from setuptools import setup, Command
 
 # Package meta-data.
 NAME = 'mlphys'
 DESCRIPTION = 'Machine Learning for Physical Sciences'
-URL = 'https://github.com/slohani-ai/mlphys'
+URL = 'https://sanjayalohani.com'
 EMAIL = 'slohani@mlphys.com'
 AUTHOR = 'Sanjaya Lohani'
 REQUIRES_PYTHON = '>=3.7.0'
-VERSION = '0.0.20'
+VERSION = '0.0.35'
 
 # What packages are required for this module to be executed?
 req_libs = open('requirements.txt').read().split('\n')
@@ -90,7 +91,7 @@ class UploadCommand(Command):
         self.status('Pushing git tags…')
         os.system('git tag v{0}'.format(about['__version__']))
         os.system('git push --tags')
-        
+
         sys.exit()
 
 
@@ -105,9 +106,9 @@ setup(
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     url=URL,
-    packages = ['deepqis'],
+    packages= ['deepqis'], # setuptools.find_packages()
     # packages=(find_packages(where='./deepqis')+
-              # find_packages(where='./deepqis/utils')), #exclude=('tests',)
+    # find_packages(where='./deepqis/utils')), #exclude=('tests',)
     # If your package is a single module, use this instead of 'packages':
     # py_modules=['mypackage'],
 
@@ -117,6 +118,8 @@ setup(
     install_requires=REQUIRED,
     extras_require=EXTRAS,
     include_package_data=True,
+    package_dir={'network': 'deepqis/network'},
+    package_data={'network': ['models/*.h5']},  # This is for data files
     license='Apache 2.0',
     classifiers=[
         'Development Status :: 3 - Alpha',

@@ -116,8 +116,21 @@ class MultiQubitSystem:
         ibmq_proj = Gen_Basis_Order(qs=self._qs).Basis_Order()
         # print(ibmq_proj)
         Proj = list(map(self.Kron_Povm, ibmq_proj))
-        Proj = np.array(Proj).reshape(-1, 2 ** self._qs, 2 ** self._qs)
+        Proj = np.array(Proj).reshape(-1, 2**self._qs, 2**self._qs)
         return Proj
+
+    def General_Scheme_Projectors(self):
+        assert (self._qs == 2), "This currently only supports two-qubits system."
+        proj_list = ['dd', 'da', 'ad', 'aa', 'dr', 'dl',
+                     'ar', 'al', 'dh', 'dv', 'ah', 'av',
+                     'rd', 'ra', 'ld', 'la', 'rr', 'rl',
+                     'lr', 'll', 'rh', 'rv', 'lh', 'lv',
+                     'hd', 'ha', 'vd', 'va', 'hr', 'hl',
+                     'vr', 'vl', 'hh', 'hv', 'vh', 'vv']
+        proj_list_map = list(map(self.Kron_Povm, proj_list))
+        proj_array = np.array(proj_list_map).reshape(-1, 2**self._qs, 2**self._qs)
+        return proj_array
+
 
 
 class Ideal:
@@ -175,21 +188,21 @@ class Ideal:
         return [tomo_array, tau_array]
 
 
-class Random_Shots:
+class Random_Measurements:
 
     def __init__(self, qs=2, n_meas=1024):
         self._qs = qs
         self.n_shots = n_meas
 
-        if not os.path.exists(f'./deepqis/utils/projectors_array_qs_{self._qs}.pickle'):
-            print('| To accelerate the simulation, Projectors file is created in utils folder.')
+        if not os.path.exists(f'./deepqis/utils/projectors_array_qs_{self._qs}_general_scheme.pickle'):
+            print('| To accelerate the simulation, General Scheme Projector file is created in utils folder.')
             mqs = MultiQubitSystem(qubit_size=self._qs)
-            proj = mqs.NISQ_Projectors()
-            with open(f'projectors_array_qs_{self._qs}.pickle', 'wb') as f:
+            proj = mqs.General_Scheme_Projectors()
+            with open(f'projectors_array_qs_{self._qs}_general_scheme.pickle', 'wb') as f:
                 pkl.dump(proj, f, -1)
             self.projectors = proj
         else:
-            self.projectors = pd.read_pickle(f'./deepqis/utils/projectors_array_qs_{self._qs}.pickle')
+            self.projectors = pd.read_pickle(f'./deepqis/utils/projectors_array_qs_{self._qs}_general_scheme.pickle')
 
         self.n_proj = self.projectors.reshape(3 ** self._qs, self._qs ** 2, self._qs ** 2, self._qs ** 2)
         self.proj_used_rank_list = []
@@ -242,7 +255,7 @@ class Random_Shots:
     def tomography_data(self, density_matrix, norm=True, save_file=False, filename='pickle.pickle'):
         self.count = 1
         measurements = list(map(self.measurement_array, density_matrix))
-        measurements = np.array(measurements).reshape(-1, 9 * self.n_shots, 6 ** self._qs)
+        measurements = np.array(measurements).reshape(-1, self.n_shots, 6 ** self._qs)
         if norm:
             tomo_array = np.sum(measurements, axis=1) / self.n_shots
         else:
@@ -251,11 +264,11 @@ class Random_Shots:
         tau_array = np.array(tau_list).reshape(-1, 2 ** self._qs * 2 ** self._qs)
 
         if save_file:
-            if not os.path.exists('./data/data_shots'):
-                os.mkdir('./data/data_shots')
-                tf.print('./data/data_shots folder has been created and ')
-            with open(f'./data/data_shots/{filename}', 'wb') as f:
-                tf.print(f'tomography data has been saved into ./data/data_shots/{filename}')
+            if not os.path.exists('./data/data_measurements'):
+                os.mkdir('./data/data_measurements')
+                tf.print('./data/data_measurements folder has been created and ')
+            with open(f'./data/measurements/{filename}', 'wb') as f:
+                tf.print(f'tomography data has been saved into ./data/data_measurements/{filename}')
                 pkl.dump([tomo_array, tau_array, density_matrix, self.proj_used_rank_list], f, -1)
 
         # return measurements, self.proj_used_rank_list
