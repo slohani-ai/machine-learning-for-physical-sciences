@@ -27,3 +27,9 @@ mlphys/deepqis/utils/__init__.py
 mlphys/deepqis/utils/gen_basis_array.py
 mlphys/deepqis/utils/gen_basis_order.py
 mlphys/deepqis/utils/projectors_array_qs_2.pickle
+mlphys/lgoam/__init__.py
+mlphys/lgoam/source/OAM_Intensity_Phase.py
+mlphys/lgoam/source/__init__.py
+mlphys/lgoam/utils/Imaging.py
+mlphys/lgoam/utils/Noise.py
+mlphys/lgoam/utils/__init__.py
