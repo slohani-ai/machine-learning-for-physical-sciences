@@ -19,7 +19,7 @@ URL = 'https://sanjayalohani.com'
 EMAIL = 'slohani@mlphys.com'
 AUTHOR = 'Sanjaya Lohani'
 REQUIRES_PYTHON = '>=3.7.0'
-VERSION = '0.0.35'
+VERSION = '0.0.36'
 
 # What packages are required for this module to be executed?
 req_libs = open('requirements.txt').read().split('\n')
@@ -122,7 +122,7 @@ setup(
     package_data={'network': ['models/*.h5']},  # This is for data files
     license='Apache 2.0',
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Science/Research',
         # Trove classifiers
         # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers

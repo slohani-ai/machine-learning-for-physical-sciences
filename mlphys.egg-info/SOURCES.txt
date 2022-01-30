@@ -1,9 +1,6 @@
-CHANGELOG.txt
 MANIFEST.in
 README.md
-projectors_array_qs_2_general_scheme.pickle
 requirements.txt
-run_me.py
 setup.py
 deepqis/__init__.py
 deepqis/Simulator/Distributions.py
@@ -11,6 +8,7 @@ deepqis/Simulator/Measurements.py
 deepqis/Simulator/__init__.py
 deepqis/network/__init__.py
 deepqis/network/inference.py
+deepqis/network/models/ARL_ONRL_meas_n_1000_qubits_2_batch_4_alpha_0.1_BEST.h5
 deepqis/network/models/ARL_ONRL_meas_n_1000_qubits_2_batch_4_alpha_0.4_BEST.h5
 deepqis/utils/Alpha_Measure.py
 deepqis/utils/Concurrence_Measure.py
