@@ -1,6 +1,6 @@
 import tensorflow as tf
 import pkg_resources
-from deepqis.utils import Extract_Net as arlnet
+from mlphys.deepqis.utils import Extract_Net as arlnet
 import os
 
 def load(alpha=0.1):
