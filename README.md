@@ -1,5 +1,5 @@
 ### Machine Learning for Physical Sciences (mlphys)
-*pip install mlphys*
+#### *pip install mlphys*
 
 Author: Sanjaya Lohani
 
