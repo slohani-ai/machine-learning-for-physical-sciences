@@ -19,7 +19,7 @@ URL = 'https://sanjayalohani.com'
 EMAIL = 'slohani@mlphys.com'
 AUTHOR = 'Sanjaya Lohani'
 REQUIRES_PYTHON = '>=3.7.0'
-VERSION = '0.0.36'
+VERSION = '1.1.3'
 
 # What packages are required for this module to be executed?
 req_libs = open('requirements.txt').read().split('\n')
@@ -106,7 +106,7 @@ setup(
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     url=URL,
-    packages= ['deepqis'], # setuptools.find_packages()
+    packages= ['mlphys'], # setuptools.find_packages()
     # packages=(find_packages(where='./deepqis')+
     # find_packages(where='./deepqis/utils')), #exclude=('tests',)
     # If your package is a single module, use this instead of 'packages':
@@ -118,7 +118,7 @@ setup(
     install_requires=REQUIRED,
     extras_require=EXTRAS,
     include_package_data=True,
-    package_dir={'network': 'deepqis/network'},
+    package_dir={'network': 'mlphys/deepqis/network'},
     package_data={'network': ['models/*.h5']},  # This is for data files
     license='Apache 2.0',
     classifiers=[
