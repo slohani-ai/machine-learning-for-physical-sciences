@@ -1,7 +1,7 @@
 ### Machine Learning for Physical Sciences
 *pip install mlphys*
 
-@Sanjaya Lohani
+Author: Sanjaya Lohani
 
 *Please report bugs at slohani@mlphys.com
 
