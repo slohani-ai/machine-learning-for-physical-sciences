@@ -35,7 +35,7 @@ import mlphys.deepqis.Simulator.Measurements as meas
 import mlphys.deepqis.utils.Alpha_Measure as find_alpha
 import mlphys.deepqis.utils.Concurrence_Measure as find_con
 import mlphys.deepqis.utils.Purity_Measure as find_pm
-import mlphys.deepqis.network.inference as inference
+import mlphys.deepqis.network.Inference as inference
 import mlphys.deepqis.utils.Fidelity_Measure as fm
 ...
 ```
@@ -44,6 +44,12 @@ _For examples (google colab), please refer to_
 * [Generating Biased Distributions](https://github.com/slohani-ai/machine-learning-for-physical-sciences/blob/main/mlphys/deepqis/Biased_distributions_random_Q_states.ipynb). 
 * [Inference Examples](https://github.com/slohani-ai/machine-learning-for-physical-sciences/blob/main/mlphys/deepqis/Inference_examples.ipynb).
 
+### Upcoming Features
+Ideal Measurements, Measurements at the given shots -- NISQ, 
+Entangled States, Engineered Random Quantum States, 
+Maximum Likelihood Estimation, 
+Measurements on NISQ devices, 
+more Pre-trained Models, ...
 <!--
 _open in the google colab_
 * [Generating Biased Distributions]
