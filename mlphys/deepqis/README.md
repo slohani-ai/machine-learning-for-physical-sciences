@@ -2,6 +2,7 @@ Author: Sanjaya Lohani
 
 *Please report bugs at slohani@mlphys.com
 
+
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -17,7 +18,7 @@ Papers:
 
 2.  Lohani, S., Searles, T. A., Kirby, B. T., & Glasser, R. T. (2021). On the Experimental Feasibility of Quantum State Reconstruction via Machine Learning. *IEEE Transactions on Quantum Engineering*, 2, 1–10. 
 
-Collaborator: Joseph M. Lukens, Daniel E. Jones, Ryan T. Glasser, Thomas A. Searles, and Brian T. Kirby
+Thanks to [Brian T. Kirby](https://briankirby.github.io/), [Ryan T. Glasser](http://www.tulane.edu/~rglasser97/), [Sean D. Huver](https://developer.nvidia.com/blog/author/shuver/) and [Thomas A. Searles](https://ece.uic.edu/profiles/searles-thomas/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
