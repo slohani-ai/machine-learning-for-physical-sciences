@@ -1,5 +1,3 @@
-### Deep Quantum Information Science (DeepQis)
-
 Author: Sanjaya Lohani
 
 *Please report bugs at slohani@mlphys.com
@@ -11,7 +9,7 @@ Author: Sanjaya Lohani
     <img src="images/Image_1.png" alt="Logo" width="120" height="120">
   </a>
 
-  <h3 align="center">OAM-Tensors (GPU/CPU)</h3>
+  <h3 align="center">Deep Quantum Information Science (DeepQis)</h3>
 
 Papers:
 
