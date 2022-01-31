@@ -1,6 +1,0 @@
-tensorflow
-tensorflow-probability
-numpy
-pandas
-qiskit
-twine
