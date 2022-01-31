@@ -1,3 +1,9 @@
+"""
+author: Sanjaya Lohani
+email: slohani@mlphys.com
+Licence: Apache-2.0
+"""
+
 import _pickle as pkl
 import itertools
 import os
@@ -137,15 +143,15 @@ class Ideal:
 
     def __init__(self, qs=2):
         self._qs = qs
-        if not os.path.exists(f'./deepqis/utils/projectors_array_qs_{self._qs}.pickle'):
+        if not os.path.exists(f'./mlphys/deepqis/utils/projectors_array_qs_{self._qs}.pickle'):
             print('| To accelerate the simulation, Projectors file is created in utils folder.')
             mqs = MultiQubitSystem(qubit_size=self._qs)
             proj = mqs.NISQ_Projectors()
-            with open(f'./deepqis/utils/projectors_array_qs_{self._qs}.pickle', 'wb') as f:
+            with open(f'./mlphys/deepqis/utils/projectors_array_qs_{self._qs}.pickle', 'wb') as f:
                 pkl.dump(proj, f, -1)
             self.projectors = proj
         else:
-            self.projectors = pd.read_pickle(f'./deepqis/utils/projectors_array_qs_{self._qs}.pickle')
+            self.projectors = pd.read_pickle(f'./mlphys/deepqis/utils/projectors_array_qs_{self._qs}.pickle')
 
     def get_tau_cholesky(self, density_matrix):
         try:
@@ -194,7 +200,7 @@ class Random_Measurements:
         self._qs = qs
         self.n_shots = n_meas
 
-        if not os.path.exists(f'./deepqis/utils/projectors_array_qs_{self._qs}_general_scheme.pickle'):
+        if not os.path.exists(f'./mlphys/deepqis/utils/projectors_array_qs_{self._qs}_general_scheme.pickle'):
             print('| To accelerate the simulation, General Scheme Projector file is created in utils folder.')
             mqs = MultiQubitSystem(qubit_size=self._qs)
             proj = mqs.General_Scheme_Projectors()
@@ -202,7 +208,7 @@ class Random_Measurements:
                 pkl.dump(proj, f, -1)
             self.projectors = proj
         else:
-            self.projectors = pd.read_pickle(f'./deepqis/utils/projectors_array_qs_{self._qs}_general_scheme.pickle')
+            self.projectors = pd.read_pickle(f'./mlphys/deepqis/utils/projectors_array_qs_{self._qs}_general_scheme.pickle')
 
         self.n_proj = self.projectors.reshape(3 ** self._qs, self._qs ** 2, self._qs ** 2, self._qs ** 2)
         self.proj_used_rank_list = []

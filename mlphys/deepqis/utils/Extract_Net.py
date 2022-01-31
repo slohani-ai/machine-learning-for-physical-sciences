@@ -1,13 +1,11 @@
-
 """
-Created on Fri Feb 21 13:27:32 2020
-
-@author: Sanjaya_lohani (slohani@mlphys.com)
+author: Sanjaya Lohani
+email: slohani@mlphys.com
+Licence: Apache-2.0
 """
 
-import tensorflow as tf
 import numpy as np
-
+import tensorflow as tf
 
 
 class PredictDensityMatrix(tf.keras.layers.Layer):
@@ -56,10 +54,8 @@ class PredictDensityMatrix(tf.keras.layers.Layer):
 
     def call(self, inputs):
         logits_l = tf.cast(inputs, tf.complex128)
-        # t_matrix_list_l = tf.map_fn(self.t_to_mat_layer,logits_l/100)
         t_matrix_list_l = tf.vectorized_map(self.t_to_mat_layer, logits_l / 100)
         t_matrix_l = tf.reshape(t_matrix_list_l, [-1, 2 ** self.qubit_size, 2 ** self.qubit_size])
-        # rho_mat_pred = tf.map_fn(self.t_mat_rho_layer,t_matrix_l)
         rho_mat_pred = tf.vectorized_map(self.t_mat_rho_layer, t_matrix_l)
         return rho_mat_pred
 

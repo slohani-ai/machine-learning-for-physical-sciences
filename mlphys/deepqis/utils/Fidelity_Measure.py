@@ -1,4 +1,10 @@
+"""
+author: Sanjaya Lohani
+email: slohani@mlphys.com
+Licence: Apache-2.0
+"""
 import tensorflow as tf
+
 
 def Fidelity_Metric(rhos_pred_value, rhos_true_value):
     rho_mat_pred = rhos_pred_value

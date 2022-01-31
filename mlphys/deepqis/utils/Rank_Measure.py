@@ -1,3 +1,8 @@
+"""
+author: Sanjaya Lohani
+email: slohani@mlphys.com
+Licence: Apache-2.0
+"""
 import tensorflow as tf
 
 

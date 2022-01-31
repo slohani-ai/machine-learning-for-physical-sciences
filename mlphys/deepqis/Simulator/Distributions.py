@@ -1,3 +1,9 @@
+"""
+author: Sanjaya Lohani
+email: slohani@mlphys.com
+Licence: Apache-2.0
+"""
+
 import numpy as np
 import qiskit.quantum_info as qi
 import tensorflow as tf
