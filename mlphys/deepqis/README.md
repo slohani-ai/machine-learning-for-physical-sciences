@@ -6,7 +6,7 @@ Author: Sanjaya Lohani
 <br />
 <p align="center">
   <a href="https://github.com/slohani-ai/LG-OAM-simulations-with-Tensors/">
-    <img src="images/Image_1.png" alt="Logo" width="120" height="120">
+    <img src="logo-image/logo_deepqis.png" alt="Logo" width="120" height="120">
   </a>
 
   <h3 align="center">Deep Quantum Information Science (DeepQis)</h3>
