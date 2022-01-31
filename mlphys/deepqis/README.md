@@ -8,7 +8,7 @@
 
   <h3 align="center">Deep Quantum Information Science (DeepQis)</h3>
 
-Author: Sanjaya Lohani
+Author: [Sanjaya Lohani](https://sanjayalohani.com)
 
 *Please report bugs at slohani@mlphys.com
 
