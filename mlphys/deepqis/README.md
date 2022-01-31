@@ -16,7 +16,7 @@ Collaborator: Joseph M. Lukens, Daniel E. Jones, Ryan T. Glasser, Thomas A. Sear
 <!-- GETTING STARTED -->
 ## Getting Started
 
-#### pip install mlphys
+```pip install mlphys```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
