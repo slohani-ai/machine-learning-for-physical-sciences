@@ -1,5 +1,4 @@
-### Machine Learning for Physical Sciences (mlphys)
-*pip install mlphys*
+### Deep Quantum Information Science (DeepQis)
 
 Author: Sanjaya Lohani
 
