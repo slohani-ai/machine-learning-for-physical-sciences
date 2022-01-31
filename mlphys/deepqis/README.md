@@ -40,11 +40,12 @@ import mlphys.deepqis.utils.Fidelity_Measure as fm
 ...
 ```
 
+## Tutorials
 _For examples (google colab), please refer to_ 
 * [Generating Biased Distributions](https://github.com/slohani-ai/machine-learning-for-physical-sciences/blob/main/mlphys/deepqis/Biased_distributions_random_Q_states.ipynb). 
 * [Inference Examples](https://github.com/slohani-ai/machine-learning-for-physical-sciences/blob/main/mlphys/deepqis/Inference_examples.ipynb).
 
-### Upcoming Features
+## Upcoming Features
 Ideal Measurements, Measurements at the given shots -- NISQ, 
 Entangled States, Engineered Random Quantum States, 
 Maximum Likelihood Estimation, 
