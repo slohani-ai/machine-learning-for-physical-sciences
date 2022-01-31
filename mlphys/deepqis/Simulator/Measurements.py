@@ -122,7 +122,7 @@ class MultiQubitSystem:
         ibmq_proj = Gen_Basis_Order(qs=self._qs).Basis_Order()
         # print(ibmq_proj)
         Proj = list(map(self.Kron_Povm, ibmq_proj))
-        Proj = np.array(Proj).reshape(-1, 2**self._qs, 2**self._qs)
+        Proj = np.array(Proj).reshape(-1, 2 ** self._qs, 2 ** self._qs)
         return Proj
 
     def General_Scheme_Projectors(self):
@@ -134,9 +134,8 @@ class MultiQubitSystem:
                      'hd', 'ha', 'vd', 'va', 'hr', 'hl',
                      'vr', 'vl', 'hh', 'hv', 'vh', 'vv']
         proj_list_map = list(map(self.Kron_Povm, proj_list))
-        proj_array = np.array(proj_list_map).reshape(-1, 2**self._qs, 2**self._qs)
+        proj_array = np.array(proj_list_map).reshape(-1, 2 ** self._qs, 2 ** self._qs)
         return proj_array
-
 
 
 class Ideal:
@@ -208,7 +207,8 @@ class Random_Measurements:
                 pkl.dump(proj, f, -1)
             self.projectors = proj
         else:
-            self.projectors = pd.read_pickle(f'./mlphys/deepqis/utils/projectors_array_qs_{self._qs}_general_scheme.pickle')
+            self.projectors = pd.read_pickle(
+                f'./mlphys/deepqis/utils/projectors_array_qs_{self._qs}_general_scheme.pickle')
 
         self.n_proj = self.projectors.reshape(3 ** self._qs, self._qs ** 2, self._qs ** 2, self._qs ** 2)
         self.proj_used_rank_list = []
