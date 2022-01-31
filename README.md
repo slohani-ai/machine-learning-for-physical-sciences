@@ -15,5 +15,5 @@ Email: slohani@mlphys.com
 
 ### Follow me:
 
-[twitter_handle](https://twitter.com/slohani_ai) 
+[Twitter](https://twitter.com/slohani_ai) 
 
