@@ -4,7 +4,7 @@ Author: [Sanjaya Lohani](https://sanjayalohani.com)
 Email: slohani@mlphys.com
 
 ### Installation
-#### pip install mlphys
+```pip install mlphys```
 
 
 ### Sub-modules
