@@ -12,8 +12,8 @@ Email: slohani@mlphys.com
 
 * <a href="https://github.com/slohani-ai/machine-learning-for-physical-sciences/tree/main/mlphys/lgoam">LG-OAM Tensors</a>
 
-
+<!--
 ### Follow me:
 
 [Twitter](https://twitter.com/slohani_ai) 
-
+-->
