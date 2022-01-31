@@ -15,7 +15,7 @@ author: Sanjaya Lohani
 
 #### Follow me:
 
-[Website](https://sanjayalohani.com) . [twitter_handle](https://twitter.com/slohani_ai) 
+[https://sanjayalohani.com](https://sanjayalohani.com) . [twitter_handle](https://twitter.com/slohani_ai) 
 
 <!--
 Papers:
