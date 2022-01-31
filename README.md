@@ -1,5 +1,7 @@
 ### Machine Learning for Physical Sciences (mlphys)
-author: Sanjaya Lohani (slohani@mlphys.com)
+author: [Sanjaya Lohani](https://sanjayalohani.com)  
+
+email: slohani@mlphys.com
 
 #### Installation
 ##### pip install mlphys
@@ -12,8 +14,6 @@ author: Sanjaya Lohani (slohani@mlphys.com)
 
 
 #### Follow me:
-
-[https://sanjayalohani.com](https://sanjayalohani.com) 
 
 [twitter_handle](https://twitter.com/slohani_ai) 
 
