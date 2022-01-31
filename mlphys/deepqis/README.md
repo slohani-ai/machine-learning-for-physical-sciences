@@ -4,6 +4,15 @@ Author: Sanjaya Lohani
 
 *Please report bugs at slohani@mlphys.com
 
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/slohani-ai/LG-OAM-simulations-with-Tensors/">
+    <img src="images/Image_1.png" alt="Logo" width="120" height="120">
+  </a>
+
+  <h3 align="center">OAM-Tensors (GPU/CPU)</h3>
+
 Papers:
 
 1.   Lohani, S., Lukens, J.M., Jones, D.E., Searles, T.A., Glasser, R.T. and Kirby, B.T., 2021. Improving application performance with biased distributions of quantum states. *Physical Review Research*, 3(4), p.043145. 
