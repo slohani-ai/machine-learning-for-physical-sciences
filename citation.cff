@@ -4,7 +4,6 @@ authors:
 - family-names: "LOHANI"
   given-names: "SANJAYA"
   orcid: "https://orcid.org/0000-0003-0699-0669"
-title: "Machine Learning for Physical Science (MLPHYS)"
-version: 2.0
+title: "Machine Learning for Physical Sciences (MLPHYS)"
 date-released: 2022-01-30
 url: "https://github.com/slohani-ai/machine-learning-for-physical-sciences"
