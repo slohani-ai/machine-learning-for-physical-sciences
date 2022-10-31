@@ -1,10 +1,14 @@
 """
 author: Sanjaya Lohani
-email: slohani@mlphys.com
+email: slohani@mlphys_nightly.com
 Licence: Apache-2.0
 """
 import tensorflow as tf
 
+__author__ = 'Sanjaya Lohani'
+__email__ = 'slohani@mlphys.com'
+__licence__ = 'Apache 2.0'
+__website__ = "sanjayalohani.com"
 
 def Fidelity_Metric(rhos_pred_value, rhos_true_value):
     rho_mat_pred = rhos_pred_value

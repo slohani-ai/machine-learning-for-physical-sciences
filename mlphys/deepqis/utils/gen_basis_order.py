@@ -1,11 +1,15 @@
 """
 author: Sanjaya Lohani
-email: slohani@mlphys.com
+email: slohani@mlphys_nightly.com
 Licence: Apache-2.0
 """
 import itertools
 import sys
 
+__author__ = 'Sanjaya Lohani'
+__email__ = 'slohani@mlphys.com'
+__licence__ = 'Apache 2.0'
+__website__ = "sanjayalohani.com"
 
 def Povm_List_Qubit_1(standard_list=['d', 'a', 'r', 'l', 'h', 'v']):
     return standard_list

@@ -1,11 +1,16 @@
 """
 author: Sanjaya Lohani
-email: slohani@mlphys.com
+email: slohani@mlphys_nightly.com
 Licence: Apache-2.0
 """
 
 import numpy as np
 import tensorflow as tf
+
+__author__ = 'Sanjaya Lohani'
+__email__ = 'slohani@mlphys.com'
+__licence__ = 'Apache 2.0'
+__website__ = "sanjayalohani.com"
 
 
 class PredictDensityMatrix(tf.keras.layers.Layer):
