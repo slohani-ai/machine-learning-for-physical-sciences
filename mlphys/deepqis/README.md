@@ -29,13 +29,13 @@ Thanks to [Brian T. Kirby](https://briankirby.github.io/), [Ryan T. Glasser](htt
 ## Usage
 
 ```sh
-import mlphys_nightly.deepqis.simulator.distributions as dist
-import mlphys_nightly.deepqis.simulator.measurements as meas
-import mlphys_nightly.deepqis.utils.Alpha_Measure as find_alpha
-import mlphys_nightly.deepqis.utils.Concurrence_Measure as find_con
-import mlphys_nightly.deepqis.utils.Purity_Measure as find_pm
-import mlphys_nightly.deepqis.network.inference as inference
-import mlphys_nightly.deepqis.utils.Fidelity_Measure as fm
+import mlphys.deepqis.simulator.distributions as dist
+import mlphys.deepqis.simulator.measurements as meas
+import mlphys.deepqis.utils.Alpha_Measure as find_alpha
+import mlphys.deepqis.utils.Concurrence_Measure as find_con
+import mlphys.deepqis.utils.Purity_Measure as find_pm
+import mlphys.deepqis.network.inference as inference
+import mlphys.deepqis.utils.Fidelity_Measure as fm
 ...
 ```
 
