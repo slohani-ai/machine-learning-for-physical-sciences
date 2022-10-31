@@ -29,8 +29,8 @@ Thanks to [Brian T. Kirby](https://briankirby.github.io/), [Ryan T. Glasser](htt
 ## Usage
 
 ```sh
-import mlphys_nightly.deepqis.simulator.Distributions as dist
-import mlphys_nightly.deepqis.simulator.Measurements as meas
+import mlphys_nightly.deepqis.simulator.distributions as dist
+import mlphys_nightly.deepqis.simulator.measurements as meas
 import mlphys_nightly.deepqis.utils.Alpha_Measure as find_alpha
 import mlphys_nightly.deepqis.utils.Concurrence_Measure as find_con
 import mlphys_nightly.deepqis.utils.Purity_Measure as find_pm
