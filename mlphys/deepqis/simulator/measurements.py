@@ -2,6 +2,7 @@ import _pickle as pkl
 import itertools
 import os
 import sys
+import logging as log
 
 import numpy as np
 import pandas as pd
@@ -218,18 +219,24 @@ class MultiQubitSystem:
 
 class Ideal_Measurements:
 
-    def __init__(self, qs=2, basis_set='general'):
+    def __init__(self, qs=2, basis_set='general', verbose=True):
         self._qs = qs
         if not os.path.exists(f'./projectors_{basis_set}/projectors_array_qs_{self._qs}.pickle'):
-            print(f'| To accelerate the simulation, a new projector_{basis_set} folder is created.')
+            if verbose:
+                log.info(f'| To accelerate the simulation, a new projector_{basis_set} folder is created.')
             try:
                 os.mkdir(f'projectors_{basis_set}')
             except:
-                print(f'|Found projectors_{basis_set} folder! Appending some files ...')
+                if verbose:
+                    log.info(f'|Found projectors_{basis_set} folder! Appending some files ...')
             mqs = MultiQubitSystem(qs=self._qs)
             if basis_set == 'general':
+                if verbose:
+                    log.warning('| General Projectors have been used.')
                 proj = mqs.General_Scheme_Projectors()
             elif basis_set == 'nisq':
+                if verbose:
+                    log.warning('| NISQ Projectors have been used.')
                 proj = mqs.NISQ_Projectors()
             else:
                 raise ValueError('basis_set either be general or nisq.')
@@ -238,6 +245,7 @@ class Ideal_Measurements:
                 pkl.dump(proj, f, -1)
             self.projectors = proj
         else:
+            log.info('| Found Projectors file.')
             self.projectors = pd.read_pickle(f'./projectors_{basis_set}/projectors_array_qs_{self._qs}.pickle')
 
     def get_tau_cholesky(self, density_matrix):
@@ -285,30 +293,37 @@ class Random_Measurements:
 
     ''' This is same as the Random_Measurements_Old but is much more faster.'''
 
-    def __init__(self, qs=2, n_meas=1024, basis_set='general'):
+    def __init__(self, qs=2, n_meas=1024, basis_set='general', verbose=True):
         self._qs = qs
         self.n_shots = n_meas
 
         if not os.path.exists(f'./projectors_{basis_set}/projectors_array_qs_{self._qs}.pickle'):
-            print(
-                f'| To accelerate the simulation, General Scheme Projector file is created in a new projectors_{basis_set} folder.')
+            if verbose:
+                log.info(f'| To accelerate the simulation, a new projector_{basis_set} folder is created.')
 
             mqs = MultiQubitSystem(qs=self._qs)
+
             if basis_set == 'general':
+                if verbose:
+                    log.warning('| General Projectors have been used.')
                 proj = mqs.General_Scheme_Projectors()
             elif basis_set == 'nisq':
+                if verbose:
+                    log.warning('| NISQ Projectors have been used.')
                 proj = mqs.NISQ_Projectors()
             else:
                 raise ValueError('basis_set either be general or nisq.')
             try:
                 os.mkdir(f'projectors_{basis_set}')
             except:
-                print(f'|Found projectors_{basis_set} folder! Appending some files ...')
+                if verbose:
+                    log.info(f'|Found projectors_{basis_set} folder! Appending some files ...')
 
             with open(f'./projectors_{basis_set}/projectors_array_qs_{self._qs}_general_scheme.pickle', 'wb') as f:
                 pkl.dump(proj, f, -1)
             self.projectors = proj
         else:
+            log.info('| Found Projectors file.')
             self.projectors = pd.read_pickle(f'./projectors_{basis_set}/projectors_array_qs_{self._qs}.pickle')
 
         self.n_proj = self.projectors.reshape(3 ** self._qs, 2**self._qs , 2**self._qs, 2**self._qs)
@@ -372,17 +387,22 @@ class Random_Measurements:
 
 class NISQ_Shots:
 
-    def __init__(self, qs=2, shots=1024, basis_set='nisq'):
+    def __init__(self, qs=2, shots=1024, basis_set='nisq', verbose=True):
         self._qs = qs
         self.n_shots = shots
 
         if not os.path.exists(f'./projectors_{basis_set}/projectors_array_qs_{self._qs}.pickle'):
-            print(f'| To accelerate the simulation, Projectors_{basis_set} file is created in a new projectors folder.')
+            if verbose:
+                log.info(f'| To accelerate the simulation, a new projector_{basis_set} folder is created.')
 
             mqs = MultiQubitSystem(qs=self._qs)
             if basis_set == 'general':
+                if verbose:
+                    log.warning('| General Projectors have been used.')
                 proj = mqs.General_Scheme_Projectors()
             elif basis_set == 'nisq':
+                if verbose:
+                    log.warning('| NISQ Projectors have been used.')
                 proj = mqs.NISQ_Projectors()
             else:
                 raise ValueError('basis_set either be general or nisq.')
@@ -396,6 +416,7 @@ class NISQ_Shots:
                 pkl.dump(proj, f, -1)
             self.projectors = proj
         else:
+            log.info('| Found Projectors file.')
             self.projectors = pd.read_pickle(f'./projectors_{basis_set}/projectors_array_qs_{self._qs}.pickle')
         # self.n_proj = self.projectors.reshape(3 ** self._qs, self._qs ** 2, self._qs ** 2, self._qs ** 2)
         self.proj_used_rank_list = []
