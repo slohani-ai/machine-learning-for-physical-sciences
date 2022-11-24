@@ -3,7 +3,7 @@ Author: [Sanjaya Lohani](https://sanjayalohani.com)
 
 Email: slohani@mlphys.com
 
-Web-app: [mlphys.com](https://mlphys.streamlit.app)
+Web-app: [mlphys.streamlit.app](https://mlphys.streamlit.app)
 ### Installation
 ```pip install mlphys```
 
