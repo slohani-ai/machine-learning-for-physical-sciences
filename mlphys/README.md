@@ -11,7 +11,7 @@ Web-app: [mlphys.streamlit.app](https://mlphys.streamlit.app)
 ### API
 * <a href="https://github.com/slohani-ai/machine-learning-for-physical-sciences/tree/main/mlphys/deepqis">deepQis</a>
 
-* <a href="https://github.com/slohani-ai/machine-learning-for-physical-sciences/tree/main/mlphys/lgoam">LG-OAM Tensors</a>
+* <a href="https://github.com/slohani-ai/machine-learning-for-physical-sciences/tree/main/mlphys/fso/lgoam">LG-OAM Tensors</a>
 
 <!--
 ### Follow me:
