@@ -96,9 +96,9 @@ To get a local copy up and running, follow these simple steps.
 ## Usage
 
 ```sh
-from mlphys_nightly.lgoam.utils.Imaging import Save
-from mlphys_nightly.lgoam.utils.Noise import Noise_Dist
-from mlphys_nightly.lgoam.source.OAM_Intensity_Phase import LG_Lights_Tensorflow
+from mlphys.fso.lgoam.utils.Imaging import Save
+from mlphys.fso.lgoam.utils.Noise import Noise_Dist
+from mlphys.fso.lgoam.source.OAM_Intensity_Phase import LG_Lights_Tensorflow
 
 lg = LG_Ligths_Tensorflow(xpixel, ypixel, dT, verbose)
 ```
